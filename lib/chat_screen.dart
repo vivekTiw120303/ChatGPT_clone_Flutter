@@ -52,8 +52,11 @@ class _ChatScreenState extends State<ChatScreen> {
     final request = CompleteReq(
         prompt: message.text, model: kTranslateModelV3, max_tokens: 200);
 
+    // token here is your API key. 
+    // You can find your API key at https://beta.openai.com/account/api-keys
+    
     _subscription = chatGPT!.builder(
-        "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", orgId: "")
+        "token", orgId: "")
         .onCompleteStream(request: request)
         .listen((response) {
       ChatMessages botMessage = ChatMessages(
